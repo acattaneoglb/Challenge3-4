@@ -3,5 +3,6 @@
 
     <string name="app_name">Contact Studio</string>
     <string name="action_settings">Settings</string>
+    <string name="title_add_contact">Add contact</string>
 
 </resources>
