@@ -3,6 +3,8 @@ package co.mobilemakers.contactstudio;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.j256.ormlite.field.DatabaseField;
+
 /**
  * Contact data model
  *
@@ -10,10 +12,17 @@ import android.os.Parcelable;
  */
 public class ContactModel implements Parcelable {
 
-    protected String mFirstName;
-    protected String mLastName;
-    protected String mNickname;
-    protected String mPhotoURL;
+    public final static String ID = "_id";
+    public final static String FIRST_NAME = "firstName";
+    public final static String LAST_NAME = "lastName";
+    public final static String NICKNAME = "nickname";
+    public final static String PICTURE = "picture";
+
+    @DatabaseField(generatedId = true, columnName = ID) private int id;
+    @DatabaseField(columnName = FIRST_NAME) protected String mFirstName;
+    @DatabaseField(columnName = LAST_NAME) protected String mLastName;
+    @DatabaseField(columnName = NICKNAME) protected String mNickname;
+    @DatabaseField(columnName = PICTURE) protected String mPhotoURL;
 
     public static final Creator<ContactModel> CREATOR = new Creator<ContactModel>() {
         @Override
